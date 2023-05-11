@@ -59,7 +59,6 @@ def mono_Kalman(x, d, N, delta=1e-4):
     P = torch.eye(N) * delta
     I = torch.eye(N)
 
-    e = torch.zeros(n_blocks)
     y = torch.zeros(n_blocks)
     for k in tqdm(range(n_blocks)):
         u[1:] = u.clone()[:-1]
@@ -72,5 +71,4 @@ def mono_Kalman(x, d, N, delta=1e-4):
         K = r / ((u @ r) + R + 1e-10)
         w = w + (K * e_t)
         P = (I - torch.outer(K, u)) @ P_t
-        e[k] = e_t
-    return e, y
+    return y
