@@ -9,6 +9,7 @@
    - Kalman filter
 - Frequency domain filters
    - FDAF
+   - FD Kalman filter
 ### List of filters is updating
 
 ## Technologies used:
